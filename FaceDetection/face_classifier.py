@@ -6,7 +6,7 @@ folder_path = "/home/saqib/anaconda3/share/OpenCV/haarcascades/"
 
 #set cascade classifier xml files
 frontalface_classifier = 'haarcascade_frontalface_default.xml'
-eye_classifier = 'haarcascade_frontalface_default.xml'
+eye_classifier = 'haarcascade_eye.xml'
 
 face_cascade = cv2.CascadeClassifier(folder_path + frontalface_classifier)
 eye_cascade = cv2.CascadeClassifier(folder_path + eye_classifier)
@@ -26,7 +26,7 @@ for (x,y,w,h) in faces:
     roi_color = img[y:y+h, x:x+w]
     eyes = eye_cascade.detectMultiScale(roi_gray)
     for (ex,ey,ew,eh) in eyes:
-        cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,155,0),12)
+        cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),12)
 
 #write image
 cv2.imwrite(output_name,img)
